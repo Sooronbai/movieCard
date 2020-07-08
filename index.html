@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie card</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="p1"></div>
+    <div id="p2"></div>
+    <div id="p3"></div>
+
+
+
+    <script type="text/babel">
+        function Person(props) {
+            
+            const styleImgBack = {
+                backgroundImage: 'url(' + props.movieImgBack + ')'
+            };
+            const styleShadow = {
+                boxShadow: '0px 0px 150px -45px ' + props.movieShadow
+            }
+
+            return (
+                <div className="movie_card" style={styleShadow}>
+                    <div className="info_section">
+
+                        <div className="movie_header">
+                            <img className="locandina" src={props.movieImg} />
+                            <h1>{props.movieName}</h1>
+                            <h4>{props.movieDate}</h4>
+                            <span className="minutes">{props.movieMinutes}</span>
+                            <p className="type">{props.movieType}</p>
+                        </div>
+
+                        <div className="movie_desc">
+                            <p className="text">{props.movieText}</p>
+                        </div>
+
+                    </div>
+
+                    <div className="blur_back shadow" style={styleImgBack}></div>
+                </div>
+            );
+        }
+
+        const p1 = document.getElementById('p1');
+        const p2 = document.getElementById('p2');
+        const p3 = document.getElementById('p3');
+        ReactDOM.render(
+        <Person 
+            movieName="Bright" 
+            movieDate="2017"
+            movieImg="https://movieplayer.net-cdn.it/t/images/2017/12/20/bright_jpg_191x283_crop_q85.jpg" 
+            movieMinutes="117 min" movieType="Action, Crime, Fantasy" 
+            movieText = "Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work with an Orc to find a weapon everyone is prepared to kill for." 
+            movieImgBack = "https://occ-0-2433-448.1.nflxso.net/art/cd5c9/3e192edf2027c536e25bb5d3b6ac93ced77cd5c9.jpg"
+            movieShadow = "rgba(19, 160, 134, 0.6)"
+            />, p1);
+        ReactDOM.render(
+        <Person movieName="Black Panther" movieDate="2018"
+            movieImg="https://mr.comingsoon.it/imgdb/locandine/235x336/53715.jpg"
+            movieMinutes="134 min" movieType="Action, Adventure, Sci-Fi"
+            movieText="T'Challa, the King of Wakanda, rises to the throne in the isolated, technologically advanced African nation, but his claim is challenged by a vengeful outsider who was a childhood victim of T'Challa's father's mistake."
+            movieImgBack="https://www.gannett-cdn.com/-mm-/c03fd140debe8ad4c05cf81a5cad7ad61a12ce52/c=0-1580-2985-3266&r=x803&c=1600x800/local/-/media/2017/06/09/USATODAY/USATODAY/636326272873599176-Black-Panther-Teaser.jpg"
+            movieShadow="rgba(199, 147, 75, 0.7)" />, p2);
+        ReactDOM.render(
+        <Person movieName="Tomb Raider" movieDate="2018"
+            movieImg="https://mr.comingsoon.it/imgdb/locandine/235x336/53750.jpg"
+            movieMinutes="125 min" movieType="Action, Fantasy"
+            movieText="Lara Croft, the fiercely independent daughter of a missing adventurer, must push herself beyond her limits when she finds herself on the island where her father disappeared."
+            movieImgBack="https://fsmedia.imgix.net/cd/c9/5e/ba/4817/4d9a/93f0/c776ec32ecbc/lara-crofts-neck-looks-unnatural-in-the-new-poster-for-tomb-raider.png"
+            movieShadow="rgba(19, 160, 134, 0.6)" />, p3);
+    </script>
+
+    <script src="https://fb.me/react-15.0.0.js"></script>
+    <script src="https://fb.me/react-dom-15.0.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+</body>
+
+</html>
